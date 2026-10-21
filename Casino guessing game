@@ -1,0 +1,41 @@
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main() {
+    int guess, number;
+    int points = 100;
+
+    srand(time(0));
+    number = rand() % 10 + 1;
+
+    cout << "===== NUMBER GUESSING GAME =====\n";
+    cout << "Welcome to the Casino Game!\n";
+    cout << "Guess a number between 1 and 10.\n";
+    cout << "You have 100 virtual points.\n";
+
+    cout << "\nEnter your guess: ";
+    cin >> guess;
+
+    if (guess < 1 || guess > 10) {
+        cout << "Invalid number! Choose between 1 and 10.\n";
+    }
+    else if (guess == number) {
+        points += 50;
+        cout << "Congratulations! Correct guess!\n";
+        cout << "You earned 50 points.\n";
+    }
+    else {
+        points -= 10;
+        cout << "Wrong guess!\n";
+        cout << "The correct number was: " << number << endl;
+        cout << "10 virtual points deducted.\n";
+    }
+
+    cout << "Your final points: " << points << endl;
+    cout << "Thanks for playing!\n";
+
+    return 0;
+}
